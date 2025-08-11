@@ -4,66 +4,76 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Talous- ja kirjanpitokonsultaatio</title>
-  
-  <!-- Google Fonts: Roboto -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  
-  <!-- Font Awesome CDN (sosiaalisten ikonien käyttöön) -->
+
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome CDN (ikonit) -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-pV7y4rXoP1D1Ys0w+Su6B4sf7hqH7v5tLBZrt1wUij2U6PL4J1I5w3E2Dhc0uupCQGy+97sEG5oRpkz77H2Z9w=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
-  
+
   <style>
     body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      color: #222;
       margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #f4f6f8;
-      color: #333;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     a {
-      color: #005aab;
+      color: #2563eb;
       text-decoration: none;
       transition: color 0.3s ease;
     }
     a:hover {
-      color: #a3cdfd;
+      color: #1e40af;
     }
-    /* Navigaatiopalkki */
+
     nav {
-      background-color: #004080;
+      background-color: #1e40af;
       display: flex;
       justify-content: center;
       padding: 1rem 0;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
     }
     nav a {
       color: white;
       margin: 0 1.5rem;
-      font-weight: 700;
+      font-weight: 600;
       font-size: 1.1rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
     }
     nav a:hover {
-      color: #a3cdfd;
-    }
-    /* Header */
-    header {
-      background-color: #004080;
+      background-color: #2563eb;
       color: white;
-      padding: 4rem 1rem;
+    }
+
+    header {
+      background-color: #1e40af;
+      color: white;
+      padding: 5rem 1rem;
       text-align: center;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
     }
     header h1 {
-      font-size: 2.8rem;
+      font-weight: 700;
+      font-size: 3rem;
+      letter-spacing: 0.05em;
       margin: 0;
     }
-    /* Pääsisältö */
+
     main {
       max-width: 900px;
       margin: 2rem auto;
@@ -72,72 +82,79 @@
     section {
       margin-bottom: 3rem;
     }
-    /* Palvelukortit */
+
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem 0;
     }
     .card {
       background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
-      transition: box-shadow 0.3s ease;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
-      box-shadow: 0 8px 16px rgb(0 0 0 / 0.15);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgb(0 0 0 / 0.12);
     }
     .card h3 {
       margin-top: 0;
-      color: #004080;
+      color: #1e40af;
     }
-    /* Lomake */
+
     form {
       background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
-      max-width: 500px;
-      margin: 0 auto;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.08);
+      max-width: 480px;
+      margin: 0 auto 3rem;
     }
     form label {
       display: block;
       margin-bottom: 0.3rem;
-      font-weight: 700;
+      font-weight: 600;
+      color: #444;
     }
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 0.6rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
+    input,
+    textarea {
       font-family: inherit;
-      resize: vertical;
-      transition: border-color 0.3s ease;
-    }
-    form input:focus,
-    form textarea:focus {
-      outline: none;
-      border-color: #004080;
-    }
-    form button {
-      background-color: #004080;
-      color: white;
-      padding: 0.7rem 1.2rem;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
       font-size: 1rem;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.2rem;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 6px #93c5fd;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      padding: 0.85rem 2rem;
       font-weight: 700;
-      transition: background-color 0.3s ease;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      width: 100%;
+      font-size: 1.1rem;
     }
-    form button:hover {
-      background-color: #003060;
+    button:hover {
+      background-color: #1e40af;
+      transform: scale(1.05);
     }
-    /* Footer */
+
     footer {
       background-color: #e2e8f0;
       text-align: center;
@@ -145,21 +162,23 @@
       font-size: 0.9rem;
       color: #555;
       margin-top: 3rem;
+      border-radius: 0 0 20px 20px;
     }
-    /* Sosiaalisen median ikonit */
+
     .social-icons {
       text-align: center;
       margin-top: 1rem;
     }
     .social-icons a {
       margin: 0 0.5rem;
-      font-size: 1.4rem;
-      color: #004080;
+      font-size: 1.6rem;
+      color: #1e40af;
       transition: color 0.3s ease;
     }
     .social-icons a:hover {
-      color: #a3cdfd;
+      color: #2563eb;
     }
+
     /* Responsiivisuus */
     @media (max-width: 600px) {
       nav {
@@ -177,13 +196,16 @@
     <a href="#palvelut">Palvelut</a>
     <a href="#yhteystiedot">Yhteystiedot</a>
   </nav>
+
   <header>
     <h1>Talous- ja kirjanpitokonsultaatio</h1>
   </header>
+
   <main>
     <section id="etusivu">
       <p>Tervetuloa talous- ja kirjanpitokonsultaatiosivuillemme! Tarjoamme asiantuntevaa apua kirjanpidon, verotuksen ja yrityksen taloussuunnittelun alueilla.</p>
     </section>
+
     <section id="palvelut">
       <h2>Palvelut</h2>
       <div class="cards">
@@ -205,33 +227,35 @@
         </div>
       </div>
     </section>
+
     <section id="yhteystiedot">
       <h2>Ota yhteyttä</h2>
       <form action="https://formspree.io/f/xgvzdvov" method="POST">
         <label for="nimi">Nimi</label>
         <input type="text" id="nimi" name="nimi" placeholder="Nimesi" required />
-        
+
         <label for="sahkoposti">Sähköposti</label>
         <input type="email" id="sahkoposti" name="sahkoposti" placeholder="Sähköpostisi" required />
-        
+
         <label for="viesti">Viesti</label>
         <textarea id="viesti" name="viesti" rows="4" placeholder="Kirjoita viestisi tähän..." required></textarea>
-        
+
         <button type="submit">Lähetä</button>
       </form>
       <p style="text-align:center; margin-top:1rem;">
         Sähköposti: <a href="mailto:info@esimerkki.fi">info@esimerkki.fi</a><br />
         Puhelin: 040 123 4567
       </p>
-      <div class="social-icons">
-        <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
-          <i class="fab fa-facebook"></i>
-        </a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
+      <div class="social-icons" aria-label="Sosiaalisen median linkit">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
-    </
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Talous- ja kirjanpitokonsultaatio. Kaikki oikeudet pidätetään.
+  </footer>
+</body>
+</html>
